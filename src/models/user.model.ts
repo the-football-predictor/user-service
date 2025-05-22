@@ -35,6 +35,11 @@ class UserModel {
     return result.rows[0] || null;
   }
 
+  static async getUserByUsername(username: string): Promise<User | null> {
+    const result = await db.query('SELECT * FROM users WHERE username = $1 AND deleted_at IS NULL', [username]);
+    return result.rows[0] || null;
+  }
+
   static async getUserById(user_id: number): Promise<User | null> {
     const result = await db.query(`SELECT * FROM users WHERE user_id = $1`, [
       user_id,

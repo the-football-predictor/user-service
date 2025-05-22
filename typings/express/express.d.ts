@@ -4,7 +4,10 @@ declare global {
   namespace Express {
     export interface Request {
       merchant: any;
-      user: any;
+      user?: { // Making it optional and more specific
+        userId: number;
+        email: string;
+      };
       imagePath?: string;
       id: string;
     }

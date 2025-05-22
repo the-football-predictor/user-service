@@ -5,6 +5,7 @@ import helmet from "helmet";
 import loggerMiddleware from "./middleware/requestLogger";
 import jsend from "./middleware/jsend";
 import { logResponseBody } from "./middleware/logResponseBody";
+import userRouter from "./routes/user.routes";
 
 export default class App {
   private server: Application;
@@ -32,6 +33,9 @@ export default class App {
     this.server.use(loggerMiddleware);
     this.server.use(logResponseBody);
     this.server.use(jsend);
+
+    // Register API routes
+    this.server.use('/api/users', userRouter);
   }
 
   /**

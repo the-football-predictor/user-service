@@ -61,7 +61,7 @@ const env = {
    */
   app_env: process.env.APP_ENV || "development",
 
-  jwt_secret: process.env.JWT_SECRET,
+  jwt_secret: process.env.JWT_SECRET || "default-dev-secret-please-change",
   expiresIn: process.env.EXPIRES_IN || "1d",
 
   adminSecret: process.env.ADMIN_SECRET,
